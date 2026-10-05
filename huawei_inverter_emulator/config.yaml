@@ -1,0 +1,31 @@
+name: Huawei Inverter Emulator
+version: "1.0.0"
+slug: huawei_inverter_emulator
+description: Emulate a Huawei SUN2000-330KTL-H1 inverter over Modbus TCP.
+url: https://github.com/warsiengin/huawei_inverter_simulator
+arch:
+  - amd64
+  - aarch64
+  - armv7
+  - armhf
+startup: services
+boot: auto
+init: false
+ports:
+  502/tcp: 502
+ports_description:
+  502/tcp: Modbus TCP service. Configure the published host port in Network settings.
+options:
+  client_ip: ""
+  unit_id: 1
+  grid_code: 0
+  failsafe_limit_kw: 275.0
+  fast_scheduling: false
+  quiet: false
+schema:
+  client_ip: str
+  unit_id: int(1,247)
+  grid_code: int(0,65535)
+  failsafe_limit_kw: float(0,275)
+  fast_scheduling: bool
+  quiet: bool
